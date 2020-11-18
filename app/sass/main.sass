@@ -1,0 +1,1570 @@
+@import reset
+@import smart-grid
+@import fonts
+@import color
+
+body
+	background-color: #fff
+	-webkit-overflow-scrolling: touch
+
+.scroll-top
+	position: fixed
+	right: 40px
+	bottom: 40px
+	z-index: 9000
+	display: none
+	
+	.fa-chevron-up
+		font-size: 35px
+		cursor: pointer
+		color: $orange
+		padding: 0px 3px 5px 3px
+		border-radius: 50%
+		background-color: #545454
+		box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 1)
+		transition: transform 0.2s
+
+		&:hover
+			transform: scale(1.15)
+
+
+.header
+	background: url('../img/header.png') 50% no-repeat
+	background-size: cover
+	height: 100vh
+
+.black
+	background-color: $black
+	opacity: 0.9
+	height: 100vh
+
+.content
+	@media(max-height: 250px)
+		padding: 20px
+
+	+xs(height, calc(100vh - 50px))
+
+	height: calc(100vh - 80px)
+	padding: 40px
+	max-width: 1880px
+	margin: 0 auto
+	+xs(padding, 25px)
+
+.nav
+	display: flex
+	justify-content: space-between
+
+.logo
+	position: relative
+	left: 50px
+
+.logo:before
+	position: absolute
+	left: -50px
+	display: block
+	content: url('../img/icon.png')
+	width: 38px
+	height: 38px
+
+.text
+	h1, p
+		color: $white
+	h1
+		font-family: $playfair
+		font-size: 21px
+		font-weight: 700
+		text-transform: uppercase
+		letter-spacing: 0.6px
+	p
+		font-family: $raleway
+		font-size: 9px
+		font-weight: 400
+		text-transform: uppercase
+		letter-spacing: 0.6px
+		padding-top: 10px
+
+nav
+	+lg(display, none)
+
+	ul
+		display: flex	
+
+		li
+			padding-right: 38px
+
+			a
+				color: $white
+				text-decoration: none
+				font-family: $raleway
+				font-size: 14px
+				font-weight: 400
+				text-transform: uppercase
+				letter-spacing: 0.35px
+				transition: color 0.3s
+			
+			a:hover
+				color: $orange
+
+		li:last-child
+			padding-right: 0
+
+.drop-nav
+	@media (max-height: 670px)
+		width: 100px
+
+	display: flex
+	position: relative
+	justify-content: flex-end
+	width: 300px
+
+	.burger
+		+xs(background-color, rgba(128,128,128,1))
+		
+		text-align: center
+		top: 0px
+		right: -300px
+		position: fixed
+		width: 300px
+		height: 100vh
+		background-color: rgba(128,128,128,0.42)
+		transition: right 0.3s
+		z-index: 20
+		
+		ul li
+			list-style: none
+			padding-top: 20px
+
+		ul li:first-child
+			padding-top: 45px
+		
+		ul li a
+			text-decoration: none
+			color: $white
+			font-family: $raleway
+			font-size: 14px
+			font-weight: 400
+			text-transform: uppercase
+			letter-spacing: 0.35px
+			transition: color 0.3s
+
+		ul li a:hover
+			color: $orange
+
+		.btnclose
+			+xs-block
+				top: 10px
+				right: 10px
+				font-size: 25px
+
+			color: $orange
+			display: none
+			z-index: 10
+			position: absolute
+			top: 20px
+			right: 20px
+			font-size: 23px
+			cursor: pointer
+
+	.btndrop
+		+xs-block
+			top: 0px
+			right: 0px
+			font-size: 20px
+
+		color: $orange
+		z-index: 10
+		top: 0px
+		right: 0px
+		font-size: 16px
+		cursor: pointer
+		
+
+		span
+			+xs(display, none)
+			color: $white
+			font-size: 14px
+			padding-left: 10px
+			font-family: $raleway
+			font-weight: 400
+			text-transform: uppercase
+			letter-spacing: 0.35px
+			transition: color 0.3s
+
+		span:hover
+			color: $orange
+
+	
+.slider 
+	@media(max-height: 250px)
+		height: calc(100vh - 95px)
+
+	+xs(height, calc(100vh - 100px))
+	display: flex
+	justify-content: space-between
+	align-items: center
+	height: calc(100vh - 135px)
+
+	.fa-chevron-right, .fa-chevron-left
+		+xs-block
+			display: block
+			color: $white
+			font-size: 13px
+			transition: color 0.3s
+			cursor: pointer
+
+		display: none
+
+	.fa-chevron-right:hover, .fa-chevron-left:hover, .prev-block button:hover, .next-block button:hover
+		color: $orange
+
+	.prev-block, .next-block, .slides
+		+col-padding()
+		display: flex
+		padding-left: 0px
+		padding-right: 0px
+	
+	.prev-block, .next-block
+		+size(1)
+		position: relative
+		z-index: 10
+
+	.next-block
+		justify-content: flex-end
+
+	.prev-block button, .next-block button
+		+lg(font-size, 11px)
+		+xs(display, none)
+		color: $white
+		font-family: $raleway
+		font-size: 14px
+		font-weight: 400
+		text-transform: uppercase
+		letter-spacing: 0.28px
+		border: none
+		background: none
+		cursor: pointer
+		padding: 0px
+		transition: color 0.3s
+		outline-color: transparent
+
+	.prev-block:after, .next-block:before
+		+lg(width,20px)
+		+xs(display, none)
+		content: " "
+		width: 47px
+		height: 2px
+		background-color: $orange
+		position: absolute
+		top: calc(50% - 2px)
+	
+	.prev-block:after
+		+lg(left, 40px)
+		left: 60px
+
+	.next-block:before
+		+lg(right, 40px)
+		right: 60px
+
+
+	.slides
+		+size(10)
+		justify-content: center
+		
+
+		.slide 
+			max-width: 480px
+			position: absolute
+			top: calc(50% - 140px)
+			left: calc(50% - 240px)
+
+			@media (max-height: 670px)
+				max-width: 70%
+				margin: 0 auto
+				text-align: center
+				left: auto
+				top: calc(50% - 100px)
+
+			@media (max-height: 250px)
+				top: calc(50% - 50px)
+
+			@media(max-height: 360px) and (max-width: 1400px) 
+				top: calc(50% - 50px)
+
+			@media(max-height: 360px) and (max-width: 992px) 
+				top: calc(50% - 50px)
+
+
+			+sm-block
+				max-width: 350px
+				top: calc(50% - 100px)
+				left: calc(50% - 170px)
+
+			@media(max-height: 360px) and (max-width: 720px) 
+				top: calc(50% - 50px)
+
+			+xs-block 
+				max-width: 240px
+				left: calc(50% - 120px)
+				top: calc(50% - 30px)
+			
+			opacity: 0
+			transition: opacity 0.3s
+
+
+			h3
+				@media (max-height: 670px)
+					font-size: 80px
+					padding-bottom: 0px
+
+				@media (max-height: 400px)
+					font-size: 50px
+
+				@media (max-height: 250px)
+					font-size: 30px
+					line-height: 50px
+
+				@media screen and (max-width: 1400px)
+					font-size: 100px
+					padding-bottom: 20px
+					line-height: 100px
+					max-height: 200px
+					overflow: hidden
+
+				@media(max-height: 360px) and (max-width: 1400px) 
+					font-size: 30px
+					line-height: 50px
+					padding-bottom: 0px	
+
+				+lg-block
+					font-size: 90px
+					padding-bottom: 20px
+					line-height: 90px
+					text-align: center
+
+				@media(max-height: 360px) and (max-width: 1200px) 
+					font-size: 30px
+					line-height: 50px
+					padding-bottom: 0px
+
+				+md-block
+					font-size: 80px
+					padding-bottom: 20px
+					line-height: 80px
+
+				@media(max-height: 360px) and (max-width: 992px)
+					font-size: 30px
+					padding-bottom: 0px
+					line-height: 50px
+
+				+sm-block
+					font-size: 60px
+					padding-bottom: 20px
+					line-height: 60px
+
+				@media(max-height: 360px) and (max-width: 720px)
+					font-size: 30px
+					padding-bottom: 0px
+					line-height: 50px
+
+				+xs-block
+					font-size: 30px
+					padding-bottom: 15px
+					line-height: 30px
+
+				color: $orange
+				font-family: $playfair
+				font-size: 120px
+				font-weight: 700
+				line-height: 120px
+				letter-spacing: 3px
+				padding-bottom: 40px
+
+			p
+
+				@media (max-height: 670px)
+					max-width: 100%
+					padding-bottom: 20px
+
+				@media (max-height: 250px)
+					font-size: 14px
+					padding-bottom: 10px
+
+				@media screen and (max-width: 1400px)
+					font-size: 14px
+					padding-bottom: 20px
+
+				@media(max-height: 360px) and (max-width: 1400px)
+					padding-bottom: 10px
+
+				+lg-block
+					font-size: 13px
+					line-height: 20px
+					text-align: center
+					margin: 0 auto
+
+				+xs-block
+					font-size: 11px
+					line-height: 15px
+					padding-bottom: 13px
+
+				color: $white
+				font-family: $raleway
+				font-size: 16px
+				font-weight: 400
+				line-height: 24px
+				letter-spacing: 0.4px
+				max-width: 375px
+				padding-bottom: 60px
+
+			.more
+
+				@media(max-height: 250px)
+					font-size: 10px
+
+				@media screen and (max-width: 1400px)
+					font-size: 12px
+
+				@media(max-height: 360px) and (max-width: 1400px)
+					font-size: 10px
+				
+				+lg-block
+					font-size: 10px
+					display: block
+					text-align: center
+					margin: 0 auto
+					width: 79px
+
+				+xs-block
+					font-size: 7px
+					width: 68px
+
+				color: $orange
+				font-family: $raleway
+				font-size: 14px
+				font-weight: 400
+				text-transform: uppercase
+				background-color: transparent
+				border: none
+				padding: 0px
+				letter-spacing: 2.32px
+				padding-bottom: 3px
+				border-bottom: 1px solid $orange
+				cursor: pointer
+				outline-color: transparent
+		
+		.showed
+			opacity: 1
+
+		.next
+			opacity: 1
+			animation: fadeInRight 0.2s
+			display: block
+			width: 100%
+
+		.prev
+			opacity: 1
+			animation: fadeInLeft 0.2s
+			display: block
+			width: 100%
+		
+
+
+		@keyframes fadeInRight 
+		  from 
+		    opacity: 0
+		    -webkit-transform: translate3d(15%, 0, 0)
+		    transform: translate3d(15%, 0, 0)
+
+		  to 
+		    opacity: 1
+		    -webkit-transform: translate3d(0, 0, 0)
+		    transform: translate3d(0, 0, 0)
+
+
+		@keyframes fadeInLeft 
+		  from 
+		    opacity: 0
+		    -webkit-transform: translate3d(-15%, 0, 0)
+		    transform: translate3d(-15%, 0, 0)
+
+		  to 
+		    opacity: 1
+		    -webkit-transform: translate3d(0, 0, 0)
+		    transform: translate3d(0, 0, 0)
+		  
+		
+
+.social-header
+	display: flex
+	align-items: flex-end
+	justify-content: space-between 
+
+	.social
+		.facebook-min, .twitter-min, .youtube-min
+			+lg-block
+				display: inline-block
+				font-size: 15px
+			+xs(font-size, 12px)
+			display: none
+
+		.facebook-min, .twitter-min
+			+xs(padding-right, 10px)
+			padding-right: 17px
+		
+		.facebook, .twitter, .youtube
+			+lg(display, none)
+
+		a
+			color: $white
+			font-family: $raleway
+			font-size: 14px
+			font-weight: 400
+			letter-spacing: 0.35px
+			text-decoration: none
+			cursor: pointer
+			transition: color 0.3s
+	
+		.facebook:after, .twitter:after
+			content: "/"
+			padding: 0 7px
+			color: $white
+		
+		a:hover
+			color: $orange
+
+	.counter
+		@media (max-height: 400px)
+			display: none
+
+		position: relative
+		p
+			+lg(font-size, 20px)
+			+xs(font-size, 16px)
+			color: $white
+			font-family: $playfair
+			font-size: 26px
+			font-weight: 700
+			letter-spacing: 0.36px
+			display: inline-block
+
+		.current:after
+			+lg-block
+				width: 100px
+				top: 12px
+			
+			+xs-block
+				content: "/"
+				width: 0px
+				height: 0px
+				top: 1px
+				left: 15px
+	
+			content: ""
+			width: 164px
+			height: 1px
+			background-color: $white
+			position: absolute
+			top: 15px
+			left: 20px
+		
+		.all
+			+lg(padding-left, 118px)
+			+xs(padding-left, 18px)
+			padding-left: 178.5px
+
+	.scrolldown
+		@media (max-height: 670px)
+			width: 228px
+
+		+lg(width, auto)
+		width: 500px
+		display: flex
+		justify-content: flex-end
+		z-index: 10 
+
+		button
+			+xs(font-size, 11px)
+			color: $white
+			font-family: $raleway
+			font-size: 14px
+			font-weight: 400
+			letter-spacing: 0.35px
+			cursor: pointer
+			transition: color 0.3s
+			border: none
+			background-color: transparent
+			outline-color: transparent
+
+		button:hover
+			color: $orange
+
+.menu-swipe
+	position: absolute
+	top: 0
+	right: 0
+	height: 100vh
+	width: 70px
+	background-color: transparent
+
+	@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) 
+   width: 20px
+
+
+
+.modal
+	position: fixed
+	top: -100vh
+	left: 0
+	background-color: rgba(0, 0, 0, 0.97)
+	width: 100%
+	height: 100vh
+	transition: top 0.3s
+	z-index: 9999
+
+.modal-content
+	
+	+lg-block
+		top: calc(50% - 25%)
+		left: calc(50% - 35%)
+		width: 70%
+		height: 55%
+
+	@media(max-height: 620px)
+		top: calc(50% - 45%)
+		height: 90%
+		padding: 40px 20px
+	
+	+sm-block
+		top: calc(50% - 30%)
+		left: calc(50% - 40%)
+		width: 80%
+		height: 60%
+
+		@media(max-height: 620px)
+			top: calc(50% - 45%)
+			height: 90%
+			padding: 40px 20px
+
+	+xs-block
+		top: calc(50% - 35%)
+		left: calc(50% - 45%)
+		width: 90%
+		height: 70%
+		padding: 60px 30px
+
+		@media(max-height: 620px)
+			top: calc(50% - 45%)
+			height: 90%
+			padding: 40px 20px
+
+
+	position: relative
+	top: calc(50% - 25%)
+	left: calc(50% - 25%)
+	width: 50%
+	height: 50%
+	border: 2px solid rgba(50, 50, 50, 0.5)
+	border-radius: 10px
+	color: $white
+	padding: 60px
+	overflow: auto
+	box-sizing: border-box
+	box-shadow: 0px 0px 30px 0px rgba(50, 50, 50, 0.89)
+
+	h3
+		font-size: 60px
+		color: $orange
+		text-align: center
+		font-family: $playfair
+		border-bottom: 1px solid gray
+		padding-bottom: 20px
+
+	p
+		@media(max-height: 620px)
+			margin-top: 20px
+		+xs(margin-top, 20px)
+
+		font-size: 14px
+		font-family: $raleway
+		margin-top: 40px
+		line-height: 20px
+
+	.close-modal
+		position: absolute
+		top: 20px
+		right: 20px
+		font-size: 20px
+		cursor: pointer
+		color: rgba(130, 130, 130, 1)
+		transition: color 0.3s
+
+	.close-modal:hover
+		color: $orange
+
+::-webkit-scrollbar 
+  width: 8px
+
+::-webkit-scrollbar-track 
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0)
+  border-radius: 10px  
+  margin-right: 10px
+
+::-webkit-scrollbar-thumb 
+    border-radius: 10px
+    background-color: $orange
+    -webkit-box-shadow: inset 0 0 6px rgba(256,256,256,0.5)
+    margin-right: 10px
+
+::-webkit-scrollbar-thumb:hover
+	background-color: gray
+
+
+section.about-us
+	+wrapper()
+	position: relative
+
+	.content
+		+row-flex()
+		
+		height: auto
+		padding: 120px 0px
+
+		@media screen and (max-width: 1400px)
+			padding: 70px 0
+
+		+sm(padding, 30px 0px)
+		.picture
+			+col()
+			+size(7)
+			+size-sm(12)
+
+			+sm-block
+				margin-right: 0px 
+
+			margin-right: 45px 
+
+
+			figure
+				+md-block
+					height: auto
+				+sm-block
+					width: 95%
+					margin: 0 auto
+					height: auto
+
+				width: 98%
+				height: 530px
+				display: flex
+				align-items: center
+
+				img
+					width: 100%
+					object-fit: cover
+		
+		.about
+			+col()
+			+size(5)
+			+size-sm(12)
+			+md-block
+				height: auto
+			+sm-block
+				height: auto
+				margin: 30px auto 0 auto
+				text-align: center
+
+			display: flex
+			align-items: center
+			height: 530px
+			margin: 0px
+
+			.center
+				position: relative
+
+			h2
+				+md-block
+					font-size: 40px
+
+				color: $black
+				font-family: $playfair
+				font-size: 60px
+				font-weight: 700
+				letter-spacing: 1.63px
+
+				&:after
+					+md-block
+						top: 55px
+
+					+sm-block
+						left: calc(50% - 23.5px) 
+
+					content: ""
+					position: absolute
+					top: 90px
+					left: 0px
+					width: 47px
+					height: 2px
+					background-color: $orange
+
+			p
+				+md-block
+					font-size: 14px
+					margin-top: 40px
+				color: $black
+				font-family: $raleway
+				font-size: 16px
+				font-weight: 400
+				line-height: 24px
+				letter-spacing: 0.4px
+				margin-top: 65px
+				max-height: 70px
+				overflow: hidden
+
+	.who-we
+		@media screen and (max-width: 1800px)
+			display: none
+
+		position: absolute
+		top: 60px
+		right: -270px
+
+		span
+			opacity: 0.22
+			color: $orange
+			font-family: $playfair
+			font-size: 300px
+			font-weight: 700
+			text-transform: uppercase
+			letter-spacing: 1.71px
+			cursor: default
+			user-select: none
+
+		p
+			color: $orange
+			font-family: $playfair
+			font-size: 14px
+			font-weight: 400
+			letter-spacing: 1.39px
+			margin-top: 180px
+			cursor: default
+			user-select: none
+			transform: rotate(-90deg)
+
+		p:before
+			content: ""
+			width: 50px
+			height: 2px
+			position: absolute
+			top: 7px
+			left: 100px
+			color: $orange
+			background-color: $orange
+			opacity: 0.6
+
+.btn-more
+	+md-block 
+		font-size: 12px
+		padding: 10px 50px
+		margin-top: 20px
+
+	+sm(margin, 15px auto 0 auto)
+
+	display: block
+	border: 2px solid $orange
+	color: $black
+	font-family: $raleway
+	font-size: 14px
+	font-weight: 400
+	text-transform: uppercase
+	letter-spacing: 2.32px
+	padding: 15px 70px
+	background-color: transparent
+	margin-top: 40px
+	cursor: pointer
+	transition: border 0.3s, background-color 0.3s
+
+.btn-more:hover
+	border: 2px solid #bbbbbb
+	background-color: #efefef
+
+
+section.services
+	+md(height, 100%)
+	+sm(background, none)
+	height: 530px
+	width: 100%
+	background: url('../img/services-bg.png') 50% no-repeat
+	background-size: cover
+	position: relative
+
+	.black
+		+sm(display, none)
+		height: 100%
+		position: absolute
+		top: 0
+		left: 0
+		bottom: 0
+		right: 0
+
+	.content
+		+wrapper()
+		+md(padding, 40px 30px)
+		+sm(padding, 20px 30px 0 30px)
+		padding: 120px 30px
+		position: relative
+		height: auto
+
+		.big-s
+			@media screen and (max-width: 1800px)
+				display: none
+
+			position: absolute
+			top: -170px
+			left: -300px
+
+			span
+				opacity: 0.22
+				color: $orange
+				font-family: $playfair
+				font-size: 300px
+				font-weight: 700
+				text-transform: uppercase
+				letter-spacing: 1.71px
+				cursor: default
+				user-select: none
+
+			p
+				color: $orange
+				font-family: $playfair
+				font-size: 14px
+				font-weight: 400
+				letter-spacing: 1.39px
+				margin-top: 270px
+				cursor: default
+				user-select: none
+				transform: rotate(-90deg)
+				opacity: 0.9
+
+			p:before
+				content: ""
+				width: 50px
+				height: 2px
+				position: absolute
+				top: 7px
+				left: 120px
+				color: $orange
+				background-color: $orange
+				opacity: 0.6
+
+		.head
+			+sm(margin-bottom, 20px)
+			display: flex
+			flex-wrap: wrap
+			justify-content: space-between
+			margin-bottom: 80px
+
+			h2
+				+sm-block
+					+col()
+					+size(12)
+					text-align: center
+					font-size: 40px
+					color: $black
+				color: $white
+				font-family: $playfair
+				font-size: 60px
+				font-weight: 700
+				letter-spacing: 1.63px
+
+				&:after
+					+md-block
+						top: 120px
+					+sm-block
+						top: 75px
+						left: calc(50% - 23.5px)
+
+					content: ""
+					position: absolute
+					top: 200px
+					left: 30px
+					width: 47px
+					height: 2px
+					background-color: $orange
+
+			.learn-more
+				+sm-block
+					+col()
+					+size(12)
+					margin: 0 auto
+					padding-top: 45px
+					width: 102px
+					text-align: center
+					color: $black
+					font-size: 12px
+
+				padding: 50px 0 5px 0
+				border: none
+				cursor: pointer
+				border-bottom: 1px solid $orange
+				color: $white
+				font-family: $raleway
+				font-size: 14px
+				font-weight: 400
+				text-transform: uppercase
+				letter-spacing: 1.12px
+				background-color: transparent
+				outline-color: transparent
+				transition: color 0.3s
+
+			.learn-more:hover
+				color: $orange
+
+		.row
+			+row-flex()
+			+md(justify-content, center)
+
+		.card
+			+col
+			+size(4)
+			+size-md(6)
+			+size-sm(12)
+			position: relative
+			padding-bottom: 30px
+
+			.card-name
+				position: absolute
+				bottom: 30px
+				height: 60px
+				text-align: center
+				padding-top: 20px
+				box-sizing: border-box
+				width: 100%
+				color: $white
+				background-color: rgba(0, 0, 0, 0.72)
+				font-family: $raleway
+				font-size: 24px
+				font-weight: 400
+				letter-spacing: 0.65px
+				transition: opacity 0.5s
+
+			.img
+				height: 350px
+				background-size: cover
+				background-position: center center
+
+			.card-hover
+				position: absolute
+				top: 0
+				left: 0
+				right: 0
+				bottom: 30px
+				opacity: 0
+				z-index: 10
+				transition: opacity 0.3s
+				
+				.card-content
+					position: absolute
+					top: 20px
+					left: 20px
+					right: 20px
+					bottom: 20px
+					border: 1px solid $orange
+					text-align: center
+
+					.h3-card
+						color: $white
+						font-family: $raleway
+						font-size: 24px
+						font-weight: 400
+						letter-spacing: 0.65px
+						width: 100%
+						text-align: center
+						margin: 70px auto 0 auto
+
+						&:after
+							content: ""
+							width: 36px
+							height: 2px
+							background-color: $orange
+							position: absolute
+							top: 110px
+							left: calc(50% - 18px)
+
+					p
+						color: $white
+						font-family: $raleway
+						font-size: 16px
+						font-weight: 400
+						line-height: 24px
+						letter-spacing: 0.4px
+						width: 70%
+						text-align: center
+						margin: 30px auto 30px auto
+						max-height: 75px
+						overflow: hidden
+
+					button
+						color: $orange
+						font-family: $raleway
+						font-size: 14px
+						font-weight: 400
+						text-transform: uppercase
+						letter-spacing: 2.32px
+						padding-bottom: 3px
+						border: none
+						background-color: transparent
+						outline-color: transparent
+						cursor: pointer
+						border-bottom: 1px solid $orange
+						transition: color 0.3s
+
+						&:hover
+							color: $white
+
+			.card-hover:hover
+				background-color: #000
+				opacity: 0.95
+
+	
+
+section.gallery
+	+md(margin-top, 50px)
+	+sm(margin-top, 0px)
+
+	margin-top: 190px
+	position: relative
+
+	.gallery-name
+		+sm(font-size, 40px)
+		color: $black
+		font-family: $playfair
+		font-size: 60px
+		font-weight: 700
+		letter-spacing: 1.63px
+		text-align: center
+		position: relative
+		margin-bottom: 30px
+
+		&:after
+			+sm(top, 60px)
+			content: ""
+			width: 47px
+			height: 2px
+			position: absolute
+			top: 85px
+			left: calc(50% - 24px)
+			background-color: $orange
+
+
+	.content
+		+row-flex()
+		+md(padding, 20px)
+		+sm(padding, 15px)
+		margin: 0 auto
+		justify-content: center
+		height: auto
+		max-width: 1920px
+		position: relative
+
+		.block-img
+			+col()
+			+size(3)
+			+size-lg(6)
+			+size-sm(12)
+			min-height: 270px 
+			margin-bottom: 30px
+			transition: transform 0.3s
+			background-size: cover
+			background-position: center center
+
+			&:hover
+				+sm(transform, scale(1.07))
+				transform: scale(1.2)
+
+		.btn-more
+			+md-block
+				padding: 15px 70px
+				margin-top: 0px
+
+			margin-top: 20px
+
+
+
+section.charger
+	+wrapper()
+	position: relative
+
+	::-webkit-scrollbar 
+	  width: 3px
+
+	::-webkit-scrollbar-track 
+	  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.6)
+	  margin-right: 10px
+
+	::-webkit-scrollbar-thumb 
+	    border-radius: 10px
+	    height: 10px
+	    background-color: $orange
+	    -webkit-box-shadow: inset 0 0 6px rgba(256,256,256,0.5)
+	    margin-right: 10px
+
+	::-webkit-scrollbar-thumb:hover
+		background-color: gray
+
+	.content
+		+row-flex()
+		+sm(padding, 30px 0px)
+		height: auto
+		padding: 120px 0px
+
+		@media screen and (max-width: 1400px)
+			padding: 70px 0
+
+		.picture
+			+col()
+			+size(7)
+			+size-sm(12)
+
+			+sm-block
+				margin-right: 0px 
+
+			margin-right: 45px 
+
+			figure
+				+sm-block
+					width: 95%
+					margin: 0 auto
+					height: auto
+
+				width: 98%
+				height: 540px
+				display: flex
+				align-items: center
+
+				img
+					width: 100%
+					height: 100%
+					object-fit: cover
+		
+		.about
+			+col()
+			+size(5)
+			+size-sm(12)
+			
+			+sm-block
+				height: auto
+				margin: 30px auto 0 auto
+				text-align: center
+
+			display: flex
+			align-items: center
+			height: 530px
+			margin: 0px
+			overscroll-behavior: contain
+
+			.center
+				position: relative
+
+			h2
+				+md-block
+					font-size: 40px
+
+				color: $black
+				font-family: $playfair
+				font-size: 60px
+				font-weight: 700
+				letter-spacing: 1.63px
+
+				&:after
+					+md-block
+						top: 55px
+
+					+sm-block
+						left: calc(50% - 23.5px)
+
+					content: ""
+					position: absolute
+					top: 80px
+					left: 0px
+					width: 47px
+					height: 2px
+					background-color: $orange
+			
+			span
+				+sm-block
+					font-size: 40px
+					padding: 10px 4px 0 0
+				color: $orange
+				font-size: 50px
+				letter-spacing: 1.25px
+				line-height: 24px
+				float: left
+				padding: 13px 7px 0 0
+
+			p
+				+md-block
+					font-size: 14px
+					margin-top: 40px
+
+				+sm(padding, 0 20px)
+				color: $black
+				font-family: $raleway
+				font-size: 16px
+				font-weight: 400
+				line-height: 24px
+				letter-spacing: 0.4px
+				margin-top: 50px
+				max-height: 265px
+				overflow: auto
+				padding-right: 30px
+				text-align: justify
+
+	.big-c
+		@media screen and (max-width: 1800px)
+			display: none
+
+		position: absolute
+		top: -170px
+		right: -270px
+
+		span
+			opacity: 0.22
+			color: $orange
+			font-family: $playfair
+			font-size: 300px
+			font-weight: 700
+			text-transform: uppercase
+			letter-spacing: 1.71px
+			cursor: default
+			user-select: none
+
+		p
+			color: $orange
+			font-family: $playfair
+			font-size: 14px
+			font-weight: 400
+			letter-spacing: 1.39px
+			margin-top: 380px
+			cursor: default
+			user-select: none
+			transform: rotate(-90deg)
+
+		p:before
+			content: ""
+			width: 50px
+			height: 2px
+			position: absolute
+			top: 7px
+			left: 140px
+			color: $orange
+			background-color: $orange
+			opacity: 0.6
+
+
+footer
+	width: 100%
+	background-color: $black
+	position: relative
+
+	.content
+		+wrapper()
+		+row-flex()
+		margin: 0 auto
+		height: auto
+		justify-content: space-between
+		+md-block
+			justify-content: center
+
+		.copyright, .footer-menu
+			+col()
+			+size(6)
+			+size-md(12)
+			display: flex
+			margin: 0
+
+			+md-block
+				justify-content: center
+		
+		.copyright-text
+			+sm-block
+				font-size: 13px
+				letter-spacing: 0px
+			color: #7b7b7b
+			font-family: $raleway
+			font-size: 14px
+			font-weight: 400
+			letter-spacing: 2.1px
+			margin: 60px 0 0 -100px
+
+		.footer-menu
+			display: flex
+			align-items: center
+			justify-content: flex-end
+			+md-block
+				justify-content: center
+				margin-top: 20px
+		
+		nav
+			display: block
+
+			ul
+				li
+					padding: 0 7px
+
+					a
+						font-size: 12px
+
+section.order
+	+wrapper()
+
+	.content
+		height: auto
+		padding: 0
+
+		h2
+			+md-block
+				font-size: 40px
+
+			color: $black
+			font-family: $playfair
+			font-size: 60px
+			font-weight: 700
+			letter-spacing: 1.63px
+			text-align: center
+			position: relative
+			margin-bottom: 70px
+
+			&:after
+				+md-block
+					top: 55px
+
+				+sm-block
+					left: calc(50% - 23.5px)
+
+				content: ""
+				position: absolute
+				top: 80px
+				left: calc(50% - 23.5px)
+				width: 47px
+				height: 2px
+				background-color: $orange
+
+		form.form
+			margin: 0 auto 50px auto
+			padding: 20px
+			max-width: 700px
+			border-radius: 5px
+			box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 1)
+
+			.form-block
+				padding: 10px 0
+				position: relative
+
+				input
+					+xs-block
+						width: 85%
+						font-size: 14px
+
+					display: block
+					width: 70%
+					font-size: 15px
+					font-weight: 700
+					margin: 0 auto
+					color: #353535
+					border: none
+					border-bottom: 2px solid #b3b3b3
+					padding: 20px 30px 5px 10px
+					outline-color: transparent
+					transition: border-bottom 0.3s
+
+				input:focus
+					border-bottom: 2px solid $orange
+
+				input:focus + label
+					transform: translate(-10px, -25px)
+					color: $orange
+
+				input:focus + label + i.fa
+					color: $orange
+
+				label
+					+xs-block
+						font-size: 14px
+						left: 4%
+
+					display: block
+					font-size: 15px
+					text-transform: uppercase
+					position: absolute
+					top: 30px
+					left: calc(16% - 20px)
+					color: #5d5d5d
+					cursor: text
+					transition: transform 0.3s, color 0.3s
+
+			.fa
+				+xs(display, none)
+				position: absolute
+				top: 30px
+				right: calc(14% - 8px)
+				color: gray
+				font-size: 18px
+				transition: color 0.3s
+
+			.fa-mobile
+				top: 23px
+				font-size: 28px
+
+			.condition
+				+xs(width, 95%)
+				width: 70%
+				margin: 15px auto 0 auto
+				transition: opacity 0.3s
+
+				.fa-check, .fa-times
+					top: 67px
+					left: 12%
+					opacity: 0
+
+				.fa-check
+					color: green
+				.fa-times
+					color: red
+
+
+
+		.form-submit
+			+md-block 
+				font-size: 12px
+				padding: 10px 50px
+				margin-top: 20px
+
+			+sm(margin, 15px auto 0 auto)
+
+			display: block
+			margin: 0 auto
+			border: 2px solid $orange
+			color: $black
+			font-family: $raleway
+			font-size: 14px
+			font-weight: 400
+			text-transform: uppercase
+			letter-spacing: 2.32px
+			padding: 15px 50px
+			background-color: transparent
+			margin-top: 40px
+			cursor: pointer
+			transition: border 0.3s, background-color 0.3s
+
+			&:hover
+				border: 2px solid #bbbbbb
+				background-color: #efefef
+
+		.alert
+			+sm(font-size, 14px)
+			text-align: center
+			margin-top: 20px
+			font-size: 18px
+
+				
+
+
